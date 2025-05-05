@@ -11,10 +11,6 @@ import { PessoaService } from '../../servicos/pessoa.service';
 })
 export class HomeComponent {
   constructor(private pessoaService: PessoaService) {
-    pessoaService.addPessoa({
-      nome: 'professor',
-      cpf: '23',
-      email: 'abc',
-    });
+   
   }
 }

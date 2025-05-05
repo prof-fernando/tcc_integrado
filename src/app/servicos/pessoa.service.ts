@@ -9,6 +9,8 @@ import {
   collectionData,
 } from '@angular/fire/firestore';
 
+import { Observable } from 'rxjs';
+
 export interface Pessoa {
   cpf: string;
   email: string;
@@ -26,5 +28,10 @@ export class PessoaService {
     // pega-se a referencia psra a colecao
     const ref = collection(this.firestore, 'pessoas');
     addDoc(ref, novaPessoa);
+  }
+
+  listarPessoas() : Observable<Pessoa[]> {
+    const ref = collection(this.firestore, 'pessoas');
+    return collectionData(ref) as Observable<Pessoa[]> ;
   }
 }
